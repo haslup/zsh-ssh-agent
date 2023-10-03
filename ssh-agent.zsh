@@ -12,8 +12,13 @@ function start_ssh_agent() {
 
 	zstyle -a :plugins:ssh-agent identities identities
 
+  EXTRA_OPTS=""
+  if [[ $(uname) == 'Darwin' ]]; then
+     EXTRA_OPTS="--apple-load-keychain"
+  fi
+
 	echo starting ssh-agent...
-	ssh-add $HOME/.ssh/${^identities}
+	ssh-add ${EXTRA_OPTS} $HOME/.ssh/${^identities}
 }
 
 ssh_environment="$HOME/.ssh/environment-$HOST"

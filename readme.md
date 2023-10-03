@@ -35,3 +35,9 @@ Update your `.zshrc` file with the following line:
 ```sh
 zplug bobsoppe/zsh-ssh-agent, use:ssh-agent.zsh, from:github
 ```
+
+## Additions
+
+### Use Apple Keychain for Passphrase
+When on a Darwin (macOS) machine, add the `--apple-load-keychain` option to `ssh-add` to use any passphrases stored in the keychain.
+
